@@ -4,7 +4,7 @@ project(ultraschall VERSION 4.0.0)
 include(CTest)
 enable_testing()
 
-add_library(ultraschall ultraschall.cpp)
+add_library(ultraschall SHARED ultraschall.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
