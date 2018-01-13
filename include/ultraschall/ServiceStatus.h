@@ -1,0 +1,13 @@
+#ifndef __ULTRASCHALL_FRAMEWORK_SERVICE_STATUS_H_INCL__
+#define __ULTRASCHALL_FRAMEWORK_SERVICE_STATUS_H_INCL__
+
+typedef uint32_t ServiceStatus;
+
+const ServiceStatus SERVICE_SUCCESS = 0;
+const ServiceStatus SERVICE_FAILURE = 0xffffffff;
+
+const ServiceStatus SERVICE_INVALID_PARAMETER = 0x00000001;
+const ServiceStatus SERVICE_ALREADY_REGISTERED = 0x00000002;
+const ServiceStatus SERVICE_NOT_FOUND = 0x00000003;
+
+#endif // #ifndef __ULTRASCHALL_FRAMEWORK_SERVICE_STATUS_H_INCL__
