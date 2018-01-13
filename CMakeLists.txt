@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(ultraschall VERSION 4.0.0)
 
+# taglib includes
 include_directories(
   external/taglib/include
   external/taglib/include/toolkit
@@ -10,10 +11,12 @@ include_directories(
   external/taglib/include/bindings/c
 )
 
+# mp4v2 includes
 include_directories(
   external/mp4v2/include
 )
 
+# public includes
 include_directories(
   include/ultraschall
 )
