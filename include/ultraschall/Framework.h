@@ -4,7 +4,7 @@
 #ifdef _MSC_VER
   #ifdef _DLL
     #define ULTRASCHALL_API __declspec(dllexport)
-  else
+  #else
     #define ULTRASCHALL_API __declspec(dllimport)
   #endif // #ifdef _DLL
 #else
