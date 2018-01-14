@@ -28,7 +28,7 @@ ServiceStatus ServiceFactory::RegisterService(const std::string& id, CREATE_SERV
   const FunctionDictionary::const_iterator functionIterator = functions_.find(id);
   if(functionIterator == functions_.end())
   {
-    status = ((functions_.insert(std::make_pair<std::string, CREATE_SERVICE_FUNCTION>(id, pFunction)).second == true) ? SERVICE_SUCCESS : SERVICE_FAILURE);
+    status = ((functions_.insert(std::pair<std::string, CREATE_SERVICE_FUNCTION>(id, pFunction)).second == true) ? SERVICE_SUCCESS : SERVICE_FAILURE);
   }
   else
   {
