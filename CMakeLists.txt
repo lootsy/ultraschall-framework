@@ -31,9 +31,19 @@ add_library(ultraschall SHARED
   src/Cover.cpp
 )
 
-find_library(MP4V2_LIB mp4v2 "external/mp4v2/lib/macos/debug")
-find_library(TAG_LIB tag "external/taglib/lib/macos/debug")
-target_link_libraries(ultraschall ${MP4V2_LIB} ${TAG_LIB})
+if(APPLE)
+find_library(MP4V2_LIB_DEBUG mp4v2 "external/mp4v2/lib/macos/debug")
+find_library(TAG_LIB_DEBUG tag "external/taglib/lib/macos/debug")
+find_library(MP4V2_LIB_RELEASE mp4v2 "external/mp4v2/lib/macos/release")
+find_library(TAG_LIB_RELEASE tag "external/taglib/lib/macos/release")
+elseif(WIN32)
+find_library(MP4V2_LIB_DEBUG libmp4v2 "external/mp4v2/lib/win32/debug")
+find_library(TAG_LIB_DEBUG tag "external/taglib/lib/win32/debug")
+find_library(MP4V2_LIB_RELEASE libmp4v2 "external/mp4v2/lib/win32/release")
+find_library(TAG_LIB_RELEASE tag "external/taglib/lib/win32/release")
+endif()
+
+target_link_libraries(ultraschall debug ${MP4V2_LIB_DEBUG} debug ${TAG_LIB_DEBUG} optimized ${MP4V2_LIB_RELEASE} optimized ${TAG_LIB_RELEASE})
 
 set_target_properties(ultraschall PROPERTIES VERSION ${PROJECT_VERSION})
 
