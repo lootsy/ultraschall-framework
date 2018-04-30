@@ -6,8 +6,12 @@ typedef uint32_t ServiceStatus;
 const ServiceStatus SERVICE_SUCCESS = 0;
 const ServiceStatus SERVICE_FAILURE = 0xffffffff;
 
-const ServiceStatus SERVICE_INVALID_PARAMETER = 0x00000001;
-const ServiceStatus SERVICE_ALREADY_REGISTERED = 0x00000002;
-const ServiceStatus SERVICE_NOT_FOUND = 0x00000003;
+const ServiceStatus SERVICE_INVALID_PARAMETER  = 0x80000001;
+const ServiceStatus SERVICE_ALREADY_REGISTERED = 0x80000002;
+const ServiceStatus SERVICE_NOT_FOUND          = 0x80000003;
+const ServiceStatus SERVICE_NOT_IMPLEMENTED    = 0x80000004;
+
+#define SERVICE_SUCCEEDED(a) (a < 0x80000000)
+#define SERVICE_FAILED(a) (SERVICE_SUCCEEDED((a)) == false)
 
 #endif // #ifndef __ULTRASCHALL_FRAMEWORK_SERVICE_STATUS_H_INCL__

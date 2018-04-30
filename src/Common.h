@@ -9,21 +9,21 @@ namespace ultraschall { namespace framework {
 template<typename T> void SafeDelete(T*& ptr)
 {
   delete ptr;
-  ptr = nullptr;
+  ptr = 0;
 }
 
 template<typename T> void SafeDeleteArray(T*& ptr)
 {
   delete [] ptr;
-  ptr = nullptr;
+  ptr = 0;
 }
 
 template<typename T> void SafeRelease(T*& ptr)
 {
-  if(ptr != nullptr)
+  if(ptr != 0)
   {
     ptr->Release();
-    ptr = nullptr;
+    ptr = 0;
   }
 }
 

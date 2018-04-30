@@ -1,0 +1,29 @@
+# see http://llvm.org/releases/3.7.0/tools/clang/docs/ClangFormatStyleOptions.html
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignOperands: true
+AlignTrailingComments: true
+AllowShortBlocksOnASingleLine : false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Allman
+ColumnLimit: 120
+# don't break lines in comments
+CommentPragmas: ".*"
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+#ConstructorInitializerAllOnOneLineOrOnePerLine: false
+#BreakConstructorInitializersBeforeComma: true
+#BreakConstructorInitializersBeforeComma: false
+Cpp11BracedListStyle: false
+IndentCaseLabels: true
+IndentWidth: 2
+MacroBlockBegin: "START_EXCEPTION"
+MacroBlockEnd: "END_EXCEPTION"
+PenaltyBreakString: 1000
+PenaltyExcessCharacter: 50
+PointerAlignment: Left
+Standard: Cpp03
+UseTab: Never
