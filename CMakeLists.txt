@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(ultraschall VERSION 4.0.0)
+project(ultraschall-framework VERSION 4.0.0)
 
 # taglib includes
 include_directories(
@@ -21,7 +21,7 @@ include_directories(
     include/ultraschall
 )
 
-add_library(ultraschall SHARED
+add_library(${PROJECT_NAME} SHARED
     src/ServiceFactory.cpp
     src/ServiceManager.cpp
 )
@@ -38,9 +38,9 @@ elseif(WIN32)
     find_library(TAG_LIB_RELEASE tag "external/taglib/lib/win32/release")
 endif()
 
-target_link_libraries(ultraschall debug ${MP4V2_LIB_DEBUG} debug ${TAG_LIB_DEBUG} optimized ${MP4V2_LIB_RELEASE} optimized ${TAG_LIB_RELEASE})
+target_link_libraries(${PROJECT_NAME} debug ${MP4V2_LIB_DEBUG} debug ${TAG_LIB_DEBUG} optimized ${MP4V2_LIB_RELEASE} optimized ${TAG_LIB_RELEASE})
 
-set_target_properties(ultraschall PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
