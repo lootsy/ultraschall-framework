@@ -1,23 +1,23 @@
 #ifndef __ULTRASCHALL_FRAMEWORK_ISERVICE_H_INCL__
 #define __ULTRASCHALL_FRAMEWORK_ISERVICE_H_INCL__
 
-#include <IServiceCallback.h>
+#include <ultraschall/IServiceCallback.h>
 
-namespace ultraschall { namespace framework {
+namespace ultraschall
+{
+namespace framework
+{
 
 class IService : public SharedObject
 {
-protected:
-  IService(IServiceCallback* pCallback)
-  {
-  }
+  protected:
+    IService(IServiceCallback* pCallback) {}
 
-private:
-  virtual ~IService()
-  {
-  }
+  private:
+    virtual ~IService() {}
 };
 
-}}
+} // namespace framework
+} // namespace ultraschall
 
 #endif // #ifndef __ULTRASCHALL_FRAMEWORK_ISERVICE_H_INCL__

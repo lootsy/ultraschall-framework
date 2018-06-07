@@ -1,6 +1,7 @@
+#include <ultraschall/ServiceFactory.h>
+#include <ultraschall/ServiceManager.h>
+
 #include "Common.h"
-#include <ServiceFactory.h>
-#include <ServiceManager.h>
 
 namespace ultraschall
 {

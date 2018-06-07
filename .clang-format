@@ -19,11 +19,10 @@ ConstructorInitializerAllOnOneLineOrOnePerLine: true
 #BreakConstructorInitializersBeforeComma: false
 Cpp11BracedListStyle: false
 IndentCaseLabels: true
-IndentWidth: 2
-MacroBlockBegin: "START_EXCEPTION"
-MacroBlockEnd: "END_EXCEPTION"
+IndentWidth: 4
 PenaltyBreakString: 1000
 PenaltyExcessCharacter: 50
 PointerAlignment: Left
 Standard: Cpp03
 UseTab: Never
+SortIncludes: false

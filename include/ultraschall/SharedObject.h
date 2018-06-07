@@ -3,40 +3,40 @@
 
 #include <atomic>
 
-namespace ultraschall { namespace framework {
+namespace ultraschall
+{
+namespace framework
+{
 
 class SharedObject
 {
-public:
-  virtual uint32_t AddRef() const
-  {
-    return ++refCount_;
-  }
-
-  virtual uint32_t Release() const
-  {
-    const uint32_t refCount = --refCount_;
-    if(refCount == 0)
+  public:
+    virtual uint32_t AddRef() const
     {
-      delete this;
+        return ++refCount_;
     }
 
-    return refCount;
-  }
+    virtual uint32_t Release() const
+    {
+        const uint32_t refCount = --refCount_;
+        if (refCount == 0)
+        {
+            delete this;
+        }
 
-protected:
-  SharedObject() : refCount_(1)
-  {
-  }
+        return refCount;
+    }
 
-  virtual ~SharedObject()
-  {
-  }
+  protected:
+    SharedObject() : refCount_(1) {}
 
-private:
-  mutable std::atomic<uint32_t> refCount_;
+    virtual ~SharedObject() {}
+
+  private:
+    mutable std::atomic<uint32_t> refCount_;
 };
 
-}}
+} // namespace framework
+} // namespace ultraschall
 
 #endif // #ifndef __ULTRASCHALL_FRAMEWORK_SHARED_OBJECT_H_INCL__

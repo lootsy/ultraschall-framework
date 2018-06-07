@@ -18,12 +18,16 @@ include_directories(
 
 # public includes
 include_directories(
-    include/ultraschall
+    include
 )
 
 add_library(${PROJECT_NAME} SHARED
+    src/Framework.cpp
     src/ServiceFactory.cpp
     src/ServiceManager.cpp
+    src/CredentialStore.cpp
+    src/CredentialStoreA.cpp
+    src/CredentialStoreW.cpp
 )
 
 if(APPLE)
