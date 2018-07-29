@@ -68,7 +68,6 @@ ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsW(LPCWSTR      Service
     else
     {
       UltraschallPrintSecErrorW(L"CredWrite failed", GetLastError());
-
       Status = SERVICE_FAILURE;
     }
   }
@@ -76,7 +75,6 @@ ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsW(LPCWSTR      Service
   {
     CredFree(pCredential);
     pCredential = 0;
-    UltraschallPrintSecErrorW(L"CredWrite failed", ERROR_ALREADY_EXISTS);
     Status = SERVICE_ALREADY_EXISTS;
   }
 
@@ -174,13 +172,12 @@ ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsW(LPCWSTR      Service
     else
     {
       UltraschallPrintSecErrorW(L"CredWrite failed", GetLastError());
-
       Status = SERVICE_FAILURE;
     }
   }
   else
   {
-    UltraschallPrintSecErrorW(L"CredWrite failed", ERROR_NOT_FOUND);
+    UltraschallPrintSecErrorW(L"CredRead failed", ERROR_NOT_FOUND);
     Status = SERVICE_NOT_FOUND;
   }
 
