@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(ultraschall-framework VERSION 4.0.0)
+project("ultraschall-framework" VERSION 4.0.0)
 
 # taglib includes
 include_directories(
