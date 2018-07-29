@@ -21,7 +21,7 @@ ServiceManager& ServiceManager::Instance()
 
 ServiceStatus ServiceManager::AcquireService(const std::string& id, IServiceCallback* pCallback, IService*& pService)
 {
-  PreconditionReturn(id.empty() == false, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(id.empty() == false, SERVICE_INVALID_PARAMETER);
 
   std::lock_guard<std::recursive_mutex> lock(servicesLock_);
 
@@ -56,7 +56,7 @@ ServiceStatus ServiceManager::AcquireService(const std::string& id, IServiceCall
 
 ServiceStatus ServiceManager::ReleaseService(const std::string& id)
 {
-  PreconditionReturn(id.empty() == false, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(id.empty() == false, SERVICE_INVALID_PARAMETER);
 
   std::lock_guard<std::recursive_mutex> lock(servicesLock_);
 

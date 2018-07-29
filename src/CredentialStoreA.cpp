@@ -11,9 +11,9 @@ extern void UltraschallPrintSecErrorW(LPCWSTR Description, const long Status);
 
 void UltraschallFreeUnicodeString(LPWSTR* ppUnicodeString, const size_t UnicodeStringLength)
 {
-  Precondition(ppUnicodeString != 0);
-  Precondition(*ppUnicodeString != 0);
-  Precondition(UnicodeStringLength > 0);
+  PRECONDITION(ppUnicodeString != 0);
+  PRECONDITION(*ppUnicodeString != 0);
+  PRECONDITION(UnicodeStringLength > 0);
 
   memset((void*)*ppUnicodeString, 0, UnicodeStringLength);
   free((void*)*ppUnicodeString);
@@ -25,10 +25,10 @@ int32_t UltraschallAnsiStringToUnicodeString(LPCSTR       AnsiString,
                                              LPWSTR*      pUnicodeString,
                                              size_t*      pUnicodeStringLength)
 {
-  PreconditionReturn(AnsiString != 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(AnsiStringLength > 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(pUnicodeString != 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(pUnicodeStringLength != 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(AnsiString != 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(AnsiStringLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(pUnicodeString != 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(pUnicodeStringLength != 0, SERVICE_INVALID_PARAMETER);
 
   ServiceStatus Status = SERVICE_FAILURE;
 
@@ -65,7 +65,7 @@ int32_t UltraschallAnsiStringToUnicodeString(LPCSTR       AnsiString,
 
 void UltraschallPrintSecErrorA(LPCSTR Description, const long Status)
 {
-  Precondition(Description != 0);
+  PRECONDITION(Description != 0);
 
   const size_t DescriptionLength = strlen(Description);
   if (DescriptionLength > 0)
@@ -90,10 +90,10 @@ ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsA(LPCSTR       Service
                                                             const void*  pPassword,
                                                             const size_t PasswordLength)
 {
-  PreconditionReturn(ServiceName != 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginName != 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceName != 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginName != 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
 
   LPWSTR        ServiceNameBuffer       = 0;
   size_t        ServiceNameBufferLength = 0;
@@ -125,10 +125,10 @@ ServiceStatus ULTRASCHALL_API UltraschallReadCredentialsA(LPCSTR       ServiceNa
                                                           void**       ppPassword,
                                                           size_t*      pPasswordLength)
 {
-  PreconditionReturn(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
 
   LPWSTR        ServiceNameBuffer       = 0;
   size_t        ServiceNameBufferLength = 0;
@@ -164,10 +164,10 @@ ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsA(LPCSTR       Service
                                                             const void*  pPassword,
                                                             const size_t PasswordLength)
 {
-  PreconditionReturn(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
 
   LPWSTR        ServiceNameBuffer       = 0;
   size_t        ServiceNameBufferLength = 0;
@@ -197,10 +197,10 @@ ServiceStatus ULTRASCHALL_API UltraschallDeleteCredentialsA(LPCSTR       Service
                                                             LPCSTR       LoginName,
                                                             const size_t LoginNameLength)
 {
-  PreconditionReturn(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginName != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ServiceNameLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginName != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(LoginNameLength > 0, SERVICE_INVALID_PARAMETER);
 
   LPWSTR        ServiceNameBuffer       = 0;
   size_t        ServiceNameBufferLength = 0;

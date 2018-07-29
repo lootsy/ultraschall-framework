@@ -6,9 +6,9 @@
 
 ServiceStatus ULTRASCHALL_API UltraschallAllocPassword(void** ppPassword, const size_t PasswordLength)
 {
-  PreconditionReturn(ppPassword != NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(*ppPassword == NULL, SERVICE_INVALID_PARAMETER);
-  PreconditionReturn(PasswordLength > 0, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(ppPassword != NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(*ppPassword == NULL, SERVICE_INVALID_PARAMETER);
+  PRECONDITION_RETURN(PasswordLength > 0, SERVICE_INVALID_PARAMETER);
 
   ServiceStatus Status = SERVICE_FAILURE;
 
@@ -27,9 +27,9 @@ ServiceStatus ULTRASCHALL_API UltraschallAllocPassword(void** ppPassword, const 
 
 void ULTRASCHALL_API UltraschallDeletePassword(void** ppPassword, const size_t PasswordLength)
 {
-  Precondition(ppPassword != NULL);
-  Precondition(*ppPassword != NULL);
-  Precondition(PasswordLength > 0);
+  PRECONDITION(ppPassword != NULL);
+  PRECONDITION(*ppPassword != NULL);
+  PRECONDITION(PasswordLength > 0);
 
   memset(*ppPassword, 0, PasswordLength);
   free(*ppPassword);

@@ -33,7 +33,7 @@ class SharedObject
     virtual ~SharedObject() {}
 
   private:
-    mutable std::atomic<uint32_t> refCount_;
+    mutable std::atomic<uint32_t> refCount_ = 1;
 };
 
 } // namespace framework

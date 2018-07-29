@@ -8,7 +8,7 @@ namespace ultraschall
 namespace framework
 {
 
-class IServiceCallback
+class IServiceCallback : public SharedObject
 {
   public:
     virtual ~IServiceCallback() {}

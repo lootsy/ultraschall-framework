@@ -1,14 +1,14 @@
 #ifndef __ULTRASCHALL_FRAMEWORK_COMMON_H_INCL__
 #define __ULTRASCHALL_FRAMEWORK_COMMON_H_INCL__
 
-#define Precondition(a)                                                                                                \
+#define PRECONDITION(a)                                                                                                \
   {                                                                                                                    \
     if (!(a))                                                                                                          \
     {                                                                                                                  \
       return;                                                                                                          \
     }                                                                                                                  \
   }
-#define PreconditionReturn(a, b)                                                                                       \
+#define PRECONDITION_RETURN(a, b)                                                                                       \
   {                                                                                                                    \
     if (!(a))                                                                                                          \
     {                                                                                                                  \

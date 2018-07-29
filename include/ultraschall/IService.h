@@ -11,9 +11,6 @@ namespace framework
 class IService : public SharedObject
 {
   protected:
-    IService(IServiceCallback* pCallback) {}
-
-  private:
     virtual ~IService() {}
 };
 

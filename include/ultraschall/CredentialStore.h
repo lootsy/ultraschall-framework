@@ -12,57 +12,57 @@ extern "C"
 {
 #endif // #ifndef __cplusplus__
 
-  ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsW(LPCWSTR      ServiceName,
+    ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsW(LPCWSTR      ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCWSTR      LoginName,
+                                                                const size_t LoginNameLength,
+                                                                const void*  pPassword,
+                                                                const size_t PasswordLength);
+
+    ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsA(LPCSTR       ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCSTR       LoginName,
+                                                                const size_t LoginNameLength,
+                                                                const void*  pPassword,
+                                                                const size_t PasswordLength);
+
+    ServiceStatus ULTRASCHALL_API UltraschallReadCredentialsW(LPCWSTR      ServiceName,
                                                               const size_t ServiceNameLength,
                                                               LPCWSTR      LoginName,
                                                               const size_t LoginNameLength,
-                                                              const void*  pPassword,
-                                                              const size_t PasswordLength);
+                                                              void**       ppPassword,
+                                                              size_t*      pPasswordLength);
 
-  ServiceStatus ULTRASCHALL_API UltraschallCreateCredentialsA(LPCSTR       ServiceName,
+    ServiceStatus ULTRASCHALL_API UltraschallReadCredentialsA(LPCSTR       ServiceName,
                                                               const size_t ServiceNameLength,
                                                               LPCSTR       LoginName,
                                                               const size_t LoginNameLength,
-                                                              const void*  pPassword,
-                                                              const size_t PasswordLength);
+                                                              void**       ppPassword,
+                                                              size_t*      pPasswordLength);
 
-  ServiceStatus ULTRASCHALL_API UltraschallReadCredentialsW(LPCWSTR      ServiceName,
-                                                            const size_t ServiceNameLength,
-                                                            LPCWSTR      LoginName,
-                                                            const size_t LoginNameLength,
-                                                            void**       ppPassword,
-                                                            size_t*      pPasswordLength);
+    ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsW(LPCWSTR      ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCWSTR      LoginName,
+                                                                const size_t LoginNameLength,
+                                                                const void*  pPassword,
+                                                                const size_t PasswordLength);
 
-  ServiceStatus ULTRASCHALL_API UltraschallReadCredentialsA(LPCSTR       ServiceName,
-                                                            const size_t ServiceNameLength,
-                                                            LPCSTR       LoginName,
-                                                            const size_t LoginNameLength,
-                                                            void**       ppPassword,
-                                                            size_t*      pPasswordLength);
+    ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsA(LPCSTR       ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCSTR       LoginName,
+                                                                const size_t LoginNameLength,
+                                                                const void*  pPassword,
+                                                                const size_t PasswordLength);
 
-  ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsW(LPCWSTR      ServiceName,
-                                                              const size_t ServiceNameLength,
-                                                              LPCWSTR      LoginName,
-                                                              const size_t LoginNameLength,
-                                                              const void*  pPassword,
-                                                              const size_t PasswordLength);
+    ServiceStatus ULTRASCHALL_API UltraschallDeleteCredentialsW(LPCWSTR      ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCWSTR      LoginName,
+                                                                const size_t LoginNameLength);
 
-  ServiceStatus ULTRASCHALL_API UltraschallUpdateCredentialsA(LPCSTR       ServiceName,
-                                                              const size_t ServiceNameLength,
-                                                              LPCSTR       LoginName,
-                                                              const size_t LoginNameLength,
-                                                              const void*  pPassword,
-                                                              const size_t PasswordLength);
-
-  ServiceStatus ULTRASCHALL_API UltraschallDeleteCredentialsW(LPCWSTR      ServiceName,
-                                                              const size_t ServiceNameLength,
-                                                              LPCWSTR      LoginName,
-                                                              const size_t LoginNameLength);
-
-  ServiceStatus ULTRASCHALL_API UltraschallDeleteCredentialsA(LPCSTR       ServiceName,
-                                                              const size_t ServiceNameLength,
-                                                              LPCSTR       LoginName,
-                                                              const size_t LoginNameLength);
+    ServiceStatus ULTRASCHALL_API UltraschallDeleteCredentialsA(LPCSTR       ServiceName,
+                                                                const size_t ServiceNameLength,
+                                                                LPCSTR       LoginName,
+                                                                const size_t LoginNameLength);
 
 #ifdef UNICODE
 #define UltraschallCreateCredentials UltraschallCreateCredentialsW
@@ -76,9 +76,9 @@ extern "C"
 #define UltraschallDeleteCredentials UltraschallDeleteCredentialsA
 #endif // #ifdef UNICODE
 
-  ServiceStatus ULTRASCHALL_API UltraschallAllocPassword(void** ppPassword, const size_t PasswordLength);
+    ServiceStatus ULTRASCHALL_API UltraschallAllocPassword(void** ppPassword, const size_t PasswordLength);
 
-  void ULTRASCHALL_API UltraschallDeletePassword(void** ppPassword, const size_t PasswordLength);
+    void ULTRASCHALL_API UltraschallDeletePassword(void** ppPassword, const size_t PasswordLength);
 
 #ifndef __cplusplus__
 }
